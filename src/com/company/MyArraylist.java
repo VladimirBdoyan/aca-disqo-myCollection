@@ -1,6 +1,10 @@
 package com.company;
 
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,7 +12,7 @@ import java.util.Arrays;
  * Date: 29.07.2021.
  * Time: 21:08.
  */
-public class MyArraylist<T> {
+public class MyArraylist<T> implements Iterable<T> {
     private int size;
     private int count = 0;
     private static final int DEFAULT_CAPACITY = 10;
@@ -101,4 +105,35 @@ public class MyArraylist<T> {
         return (T) array[index];
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+            private int i = 0;
+
+            /**
+             * Returns true if the array has more elements.
+             */
+            @Override
+            public boolean hasNext() {
+                return (i < array.length && array[i] != null);
+            }
+
+            @Override
+            public T next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+                return (T) array[i++];
+            }
+        };
+    }
+
+    @Override
+    public void forEach(Consumer<? super T> action) {
+    }
+
+    @Override
+    public Spliterator<T> spliterator() {
+        return null;
+    }
 }
