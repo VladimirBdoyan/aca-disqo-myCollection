@@ -32,7 +32,6 @@ public class MySingleLinkedList<T> {
         return true;
     }
 
-
     private void insert(T data) {
 
         Node<T> newNode = new Node<>(data, head);
@@ -41,15 +40,19 @@ public class MySingleLinkedList<T> {
         if (head == null) {
             head = newNode;
         } else {
-            Node<T> last = head;
-            while (head.next != null) {
-                head = head.next;
-            }
-            head.next = newNode;
+            Node<T> last = newNode;
+            last.next = head;
+            head = last;
         }
         size++;
     }
 
+    public void remove(int index) {
+        int head = index - 1;
+        int last = index + 1;
+        node(last).next = node(head);
+        size--;
+    }
     public int size() {
         return size;
     }
@@ -58,20 +61,31 @@ public class MySingleLinkedList<T> {
         return node(index).data;
     }
 
+    public boolean contains (T t){
+        return indexOf(t) >= 0;
+    }
+
+    public int indexOf(T t){
+        int index = 0;
+        for(Node<T> x = head; x!=null; x = x.next){
+            if(t.equals(x.data)){
+                return index;
+            }
+            index++;
+        }
+        return -1;
+  }
+
+    // Iterate nodes for get index
     private Node<T> node(int index) {
 
         Node<T> x = head;
-
-        for (int i = 0; i < index; i++)
-            x = x.next;
+        if (index >= size) {
+            throw new IndexOutOfBoundsException();
+        } else {
+            for (int i = size - 1; i > index; i--)
+                x = x.next;
+        }
         return x;
-
-    }
-
-    @Override
-    public String toString() {
-        return  "MySingleLinkedList{" +
-                "head= " + head.data +
-                '}';
     }
 }
