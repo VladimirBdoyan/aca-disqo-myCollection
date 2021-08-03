@@ -7,12 +7,12 @@ public class Main {
 
 
     public static void main(String[] args) {
-
+        LinkedList<String> str = new LinkedList<>();
         MySingleLinkedList<String> strLink = new MySingleLinkedList<>();
         strLink.add("Vlo");
-        strLink.add("Hro");
         strLink.add("Hakob");
         strLink.add("Suro");
+        strLink.add("Hro");
         strLink.add("Vruyr");
         strLink.add("Davo");
         strLink.add("Hayko");
@@ -21,11 +21,7 @@ public class Main {
         for (int i = 0; i < strLink.size(); i++) {
             System.out.println(strLink.get(i));
         }
-        System.out.println();
-        for (String str: strLink){
-            System.out.println(str);
-        }
-        System.out.println("\n" + strLink.contains("Hakob")+ "\n" + strLink.contains("Hro"));
+        System.out.println("\n" + strLink.contains("Suro")+ "\n" + strLink.contains("Hro"));
         System.out.println("\n" + strLink.get(2));
         System.out.println("MySingleLinkedList Size is : " + strLink.size());
 
