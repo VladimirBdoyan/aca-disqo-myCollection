@@ -7,7 +7,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        LinkedList<String> str = new LinkedList<>();
+
         MySingleLinkedList<String> strLink = new MySingleLinkedList<>();
         strLink.add("Vlo");
         strLink.add("Hakob");

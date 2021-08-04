@@ -1,10 +1,7 @@
 package com.company;
 
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.NoSuchElementException;
-import java.util.Spliterator;
-import java.util.function.Consumer;
+
 
 /**
  * Created with IntelliJ IDEA.
