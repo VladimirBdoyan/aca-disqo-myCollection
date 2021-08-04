@@ -21,6 +21,10 @@ public class Main {
         for (int i = 0; i < strLink.size(); i++) {
             System.out.println(strLink.get(i));
         }
+        System.out.println();
+        for(String str1: strLink){
+            System.out.println(str1);
+        }
         System.out.println("\n" + strLink.contains("Suro")+ "\n" + strLink.contains("Hro"));
         System.out.println("\n" + strLink.get(2));
         System.out.println("MySingleLinkedList Size is : " + strLink.size());
